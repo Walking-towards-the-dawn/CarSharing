@@ -58,6 +58,7 @@ $whiteColor: #fefefe;
 }
 /* -------------- */
 .main__section__container {
+    height: 100vh;
     padding-top: 4rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -66,46 +67,108 @@ $whiteColor: #fefefe;
     padding-top: 4.6875rem;
     text-align: center;
     &-title {
+        max-width: 27.625rem;
+        margin: 0 auto 1.25rem;
         font-family: Fira Sans;
         font-size: 3rem;
+        line-height: 3.625rem;
         font-weight: 500;
-        margin-bottom: 1.25rem;
     }
     &-text {
+        max-width: 33.75rem;
+        margin: 0 auto 3.125rem;
         font-size: 1.5rem;
+        line-height: 1.75rem;
         font-weight: 400;
-        margin-bottom: 3.125rem;
     }
 }
 .main__content-items {
     margin-top: 7.1875rem;
     display: flex;
+    justify-content: center;
     gap: 3.125rem;
 }
 .main__content-item {
-    display: grid;
-    justify-items: center;
-    align-content: center;
-    gap: 16px;
-    padding: 14px 10px;
+    height: 150px;
+    max-width: 150px;
+    padding: 0.875rem 0.625rem;
     border: 1px solid $corporateСolor;
 }
 .content-item__text {
-    margin-top: 16px;
+    margin-top: 1rem;
 }
 .app-link {
     text-transform: uppercase;
     display: inline-block;
-    padding: 1rem 1.1875rem;
-    background-color: $accentColor;
+    padding: 0.9375rem 1.125rem;
     color: $whiteColor;
+    background-color: $accentColor;
+    border: 1px solid transparent;
+    transition: all ease 0.4s;
+}
+.app-link:hover {
+    color: $accentColor;
+    background-color: $whiteColor;
+    border: 1px solid $accentColor;
+}
+
+/* -------------- */
+.main__slider-container {
+    position: relative;
+    max-width: 600px;
+    height: 482px;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.slide {
+    text-align: center;
+    min-height: 482px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.pagination {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 5px 0;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+.copyright {
+    margin-top: 128px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 /* -------------- */
-.main__slider {
-    &-item {
-        text-align: center;
-    }
-}
+
 /* ------- Main ------- */
 
 /* ------- Footer ------- */
