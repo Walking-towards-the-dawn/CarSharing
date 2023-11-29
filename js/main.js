@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	setInterval(() => {
 		currentIndex = (currentIndex + 1) % slides.children.length;
 		goToSlide(currentIndex);
-	}, 3000);
+	}, 6000);
 
 	// Initial setup
 	updatePagination();
