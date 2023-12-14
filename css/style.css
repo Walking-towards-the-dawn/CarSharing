@@ -93,19 +93,6 @@
 }
 
 /* -------------- */
-.main__slider {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
 .main__section {
   padding: 3.75rem 0 6.25rem;
 }
@@ -178,6 +165,19 @@
 }
 
 /* -------------- */
+.main__slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .main__slider-container {
   position: relative;
   max-width: 37.5rem;
@@ -266,45 +266,76 @@
 
 /* -------------- */
 .rent {
-  padding-bottom: 6.25rem;
+  padding: 6.25rem 0;
 }
-
 .rent__inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: normal;
+      -ms-flex-align: normal;
+          align-items: normal;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 50px;
+  gap: 3.125rem;
 }
 
 .rent__content {
-  max-width: 300px;
+  position: relative;
+  max-width: 18.75rem;
 }
-.rent__content p:nth-child(3) {
-  margin: 1.25rem 0 1.875rem;
+.rent__content-link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-.rent__title {
-  margin-bottom: 1.25rem;
-}
-
-.rent__items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 50px;
+.rent__text:nth-child(2) {
+  margin: 1.25rem 0;
 }
 
 .rent__item {
-  max-width: 250px;
+  padding: 0 1.875rem 0.625rem;
+  max-width: 15.625rem;
   text-align: center;
   border: 1px solid #332208;
   -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.rent__item-numb {
+  font-family: Fira Sans;
+  font-size: 6rem;
+  line-height: 7.1875rem;
+  color: #181818;
+  opacity: 0.05;
+}
+.rent__item-title {
+  min-height: 2.75rem;
+  font-family: Fira Sans;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  margin: 0.9375rem 0 1.5625rem;
+}
+.rent__item-text {
+  height: 8.125rem;
+}
+
+/* -------------- */
+/* -------------- */
+.benefits {
+  padding: 6.25rem 0;
+}
+.benefits__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.benefits__list-item::after {
+  content: "";
+  background-color: #181818;
+  width: 16px;
+  height: 16px;
 }
 
 /* -------------- */
