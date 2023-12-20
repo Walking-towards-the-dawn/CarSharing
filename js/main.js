@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const pagination = document.querySelector('.pagination');
 	let currentIndex = 0;
 
-	// Create dots for pagination
+	// Створіть крапки для pagination
 	for (let i = 0; i < slides.children.length; i++) {
 		const dot = document.createElement('div');
 		dot.classList.add('dot');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		pagination.appendChild(dot);
 	}
 
-	// Highlight the current dot
+	// Виділити поточну крапку
 	function updatePagination() {
 		const dots = pagination.children;
 		for (let i = 0; i < dots.length; i++) {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	// Go to the specified slide index
+	// Перейти до вказаного індексу слайда
 	function goToSlide(index) {
 		currentIndex = index;
 		const translateValue = -index * 100 + '%';
@@ -27,18 +27,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		updatePagination();
 	}
 
-	// Automatic slide change every 3 seconds
+	// Автоматична зміна слайдів кожні 3 секунди
 	setInterval(() => {
 		currentIndex = (currentIndex + 1) % slides.children.length;
 		goToSlide(currentIndex);
-	}, 6000);
+	}, 4000);
 
-	// Initial setup
 	updatePagination();
 });
 
+// Слайдер відгуків
 document.addEventListener('DOMContentLoaded', function () {
-	var swiper = new Swiper('.swiper-container', {
+	let swiper = new Swiper('.swiper-container', {
 		slidesPerView: 4,
 		spaceBetween: 30,
 		loop: true,
