@@ -338,7 +338,6 @@ $whiteColor: #fefefe;
 /* -------------- */
 .reviews {
   padding: 6.25rem 0;
-  margin-bottom: 0.625rem;
   color: $whiteColor;
   background-color: $corporateСolor;
 }
@@ -389,8 +388,49 @@ span.swiper-pagination-bullet-active {
 .feedback {
   padding: 6.25rem 0;
 }
+.feedback__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+}
 .feedback__form {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 92px;
+}
+.form__text {
+  margin-bottom: 50px;
+}
+.form__input {
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+  &:last-of-type {
+    margin-bottom: 50px;
+  }
+}
+.form__btn {
+  width: fit-content;
+  text-align: center;
+  padding: 16px 36px;
+  background-color: $accentColor;
+  color: $whiteColor;
+  text-transform: uppercase;
+  font-family: Roboto Condensed;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid transparent;
+  transition: all ease 0.4s;
+  cursor: pointer;
+  &:hover {
+    color: $accentColor;
+    background-color: $whiteColor;
+    border: 1px solid $accentColor;
+  }
 }
 /* -------------- */
 /* ------- Main ------- */

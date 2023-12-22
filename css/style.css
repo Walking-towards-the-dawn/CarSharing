@@ -422,7 +422,6 @@
 /* -------------- */
 .reviews {
   padding: 6.25rem 0;
-  margin-bottom: 0.625rem;
   color: #fefefe;
   background-color: #332208;
 }
@@ -493,10 +492,63 @@ span.swiper-pagination-bullet-active {
   padding: 6.25rem 0;
 }
 
+.feedback__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
 .feedback__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  padding: 0 92px;
+}
+
+.form__text {
+  margin-bottom: 50px;
+}
+
+.form__input {
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form__input:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+.form__input:last-of-type {
+  margin-bottom: 50px;
+}
+
+.form__btn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  padding: 16px 36px;
+  background-color: #c5ac2d;
+  color: #fefefe;
+  text-transform: uppercase;
+  font-family: Roboto Condensed;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid transparent;
+  -webkit-transition: all ease 0.4s;
+  transition: all ease 0.4s;
+  cursor: pointer;
+}
+.form__btn:hover {
+  color: #c5ac2d;
+  background-color: #fefefe;
+  border: 1px solid #c5ac2d;
 }
 
 /* -------------- */
