@@ -39,7 +39,23 @@ document.addEventListener('DOMContentLoaded', function () {
 // Слайдер відгуків
 document.addEventListener('DOMContentLoaded', function () {
 	let swiper = new Swiper('.swiper-container', {
-		slidesPerView: 4,
+		breakpoints: {
+			1200: {
+				slidesPerView: 4,
+			},
+			900: {
+				slidesPerView: 3,
+			},
+			800: {
+				slidesPerView: 2,
+			},
+			650: {
+				slidesPerView: 2,
+			},
+			450: {
+				slidesPerView: 1,
+			},
+		},
 		spaceBetween: 30,
 		loop: true,
 		autoplay: {
