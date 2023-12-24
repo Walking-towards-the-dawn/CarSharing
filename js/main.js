@@ -1,40 +1,71 @@
-document.addEventListener('DOMContentLoaded', function () {
-	const slides = document.querySelector('.slides');
-	const pagination = document.querySelector('.pagination');
-	let currentIndex = 0;
+let slideIndex = 0;
+let slides, dots, slideInterval;
 
-	// Створіть крапки для pagination
-	for (let i = 0; i < slides.children.length; i++) {
-		const dot = document.createElement('div');
-		dot.classList.add('dot');
-		dot.addEventListener('click', () => goToSlide(i));
-		pagination.appendChild(dot);
+function startShow() {
+	slides = document.getElementsByClassName('slide');
+	dots = document.getElementsByClassName('dot');
+	slideInterval = setInterval(showSlides, 2000); // Change slide every 2 seconds
+}
+
+function showSlides() {
+	let i;
+	for (i = 0; i < slides.length; i++) {
+		slides[i].style.display = 'none';
 	}
-
-	// Виділити поточну крапку
-	function updatePagination() {
-		const dots = pagination.children;
-		for (let i = 0; i < dots.length; i++) {
-			dots[i].classList.toggle('active', i === currentIndex);
-		}
+	slideIndex++;
+	if (slideIndex > slides.length) {
+		slideIndex = 1;
 	}
-
-	// Перейти до вказаного індексу слайда
-	function goToSlide(index) {
-		currentIndex = index;
-		const translateValue = -index * 100 + '%';
-		slides.style.transform = 'translateY(' + translateValue + ')';
-		updatePagination();
+	for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(' active', '');
 	}
+	slides[slideIndex - 1].style.display = 'inline-block';
+	dots[slideIndex - 1].className += ' active';
+}
 
-	// Автоматична зміна слайдів кожні 3 секунди
-	setInterval(() => {
-		currentIndex = (currentIndex + 1) % slides.children.length;
-		goToSlide(currentIndex);
-	}, 4000);
+// Swipe detection for mobile devices
+let touchstartX = 0;
+let touchendX = 0;
 
-	updatePagination();
+document.addEventListener(
+	'touchstart',
+	function (e) {
+		touchstartX = e.changedTouches[0].screenX;
+	},
+	false
+);
+
+document.addEventListener(
+	'touchend',
+	function (e) {
+		touchendX = e.changedTouches[0].screenX;
+		handleSwipe();
+	},
+	false
+);
+
+function handleSwipe() {
+	if (touchendX < touchstartX) {
+		slideIndex++;
+	}
+	if (touchendX > touchstartX) {
+		slideIndex--;
+	}
+	showSlides();
+}
+
+// Pagination click event
+let pagination = document.getElementsByClassName('pagination')[0];
+pagination.addEventListener('click', function (e) {
+	if (e.target.classList.contains('dot')) {
+		clearInterval(slideInterval);
+		slideIndex = Array.from(pagination.children).indexOf(e.target);
+		showSlides();
+		slideInterval = setInterval(showSlides, 2000); // Restart the slide show
+	}
 });
+
+window.onload = startShow;
 
 // Слайдер відгуків
 document.addEventListener('DOMContentLoaded', function () {
@@ -66,4 +97,32 @@ document.addEventListener('DOMContentLoaded', function () {
 			clickable: true,
 		},
 	});
+});
+
+document.addEventListener('DOMContentLoaded', event => {
+	document.querySelectorAll('.menu__list-link').forEach(item => {
+		item.addEventListener('click', event => {
+			event.preventDefault();
+			let id = event.target.getAttribute('href').substring(1);
+			window.scrollTo({
+				top: document.getElementById(id).offsetTop,
+				behavior: 'smooth',
+			});
+		});
+	});
+});
+
+function menuList(x) {
+	x.classList.toggle('active');
+	var content = x.nextElementSibling;
+	content.classList.toggle('active');
+}
+
+window.addEventListener('click', function (e) {
+	var menuIcon = document.querySelector('.menu__icon');
+	var menuList = document.querySelector('.menu__list');
+	if (!menuIcon.contains(e.target) && !menuList.contains(e.target)) {
+		menuIcon.classList.remove('active');
+		menuList.classList.remove('active');
+	}
 });
