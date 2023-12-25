@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 /* ------------ Reviews Slider ------------ */
 
-/* ------------  ------------ */
+/* ------------ Page navigation ------------ */
 document.addEventListener('DOMContentLoaded', event => {
 	document.querySelectorAll('.menu__list-link').forEach(item => {
 		item.addEventListener('click', event => {
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', event => {
 	});
 });
 
-/* ------------  ------------ */
+/* ------------ Page navigation ------------ */
 
 /* ------------ Burger Menu ------------ */
 const menuList = document.querySelector('.menu__list');
@@ -124,5 +124,15 @@ const menuBtn = document.querySelector('.menu__btn');
 
 menuBtn.addEventListener('click', () => {
 	menuList.classList.toggle('menu__list--active');
+});
+
+window.addEventListener('scroll', () => {
+	menuList.classList.remove('menu__list--active');
+});
+
+document.addEventListener('click', event => {
+	if (!event.target.closest('.menu__list') && !event.target.closest('.menu__btn')) {
+		menuList.classList.remove('menu__list--active');
+	}
 });
 /* ------------ Burger Menu ------------ */
