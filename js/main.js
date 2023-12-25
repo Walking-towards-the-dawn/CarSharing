@@ -1,3 +1,4 @@
+/* ------------ Main Slider ------------ */
 let slideIndex = 0;
 let slides, dots, slideInterval;
 
@@ -66,8 +67,9 @@ pagination.addEventListener('click', function (e) {
 });
 
 window.onload = startShow;
+/* ------------ Main Slider ------------ */
 
-// Слайдер відгуків
+/* ------------ Reviews Slider ------------ */
 document.addEventListener('DOMContentLoaded', function () {
 	let swiper = new Swiper('.swiper-container', {
 		breakpoints: {
@@ -98,7 +100,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 	});
 });
+/* ------------ Reviews Slider ------------ */
 
+/* ------------  ------------ */
 document.addEventListener('DOMContentLoaded', event => {
 	document.querySelectorAll('.menu__list-link').forEach(item => {
 		item.addEventListener('click', event => {
@@ -112,17 +116,13 @@ document.addEventListener('DOMContentLoaded', event => {
 	});
 });
 
-function menuList(x) {
-	x.classList.toggle('active');
-	var content = x.nextElementSibling;
-	content.classList.toggle('active');
-}
+/* ------------  ------------ */
 
-window.addEventListener('click', function (e) {
-	var menuIcon = document.querySelector('.menu__icon');
-	var menuList = document.querySelector('.menu__list');
-	if (!menuIcon.contains(e.target) && !menuList.contains(e.target)) {
-		menuIcon.classList.remove('active');
-		menuList.classList.remove('active');
-	}
+/* ------------ Burger Menu ------------ */
+const menuList = document.querySelector('.menu__list');
+const menuBtn = document.querySelector('.menu__btn');
+
+menuBtn.addEventListener('click', () => {
+	menuList.classList.toggle('menu__list--active');
 });
+/* ------------ Burger Menu ------------ */
